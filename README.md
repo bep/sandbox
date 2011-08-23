@@ -11,26 +11,16 @@ A small Grails project to test out GORM modelling (Hibernate) 1-many-realationsh
 
 Inspired by this blog post: https://mrpaulwoods.wordpress.com/2011/02/07/implementing-burt-beckwiths-gorm-performance-no-collections/
 
-Creation of 1000 then one child gives currently these results with a HSQLDB file-db running on my Dell laptop:
+On my i7 Ubuntu desktop with 6 gigs of ram and the citizen number set to 10000:
 
-	01445  007%  Creating Japan With Collection
-	06158  031%  Adding the first 1000 citizens to Japan With Collection
-	02106  010%  Adding one more citizen to Japan With Collection
-	00277  001%  Creating Japan Without Collection
-	10089  050%  Adding the first 1000 citizens to Japan Without Collection
-	00011  000%  Adding one more citizen to Japan Without Collection
+	00438  001%  Creating Japan With Collection
+	16928  037%  Adding the first 10000 citizens to Japan With Collection
+	11202  025%  Adding one more citizen to Japan With Collection
+	00050  000%  Creating Japan Without Collection
+	15901  035%  Adding the first 10000 citizens to Japan Without Collection
+	00061  000%  Adding one more citizen to Japan Without Collection
+	00844  002%  Deleting Japan With Collection
+	00164  000%  Deleting Japan Without Collection
 
-On my i7 Ubuntu desktop with 6 gigs of ram and the citizen number set to 10000, now with added test case for the cascade-delete:
-
-	00451  000%  Creating Japan With Collection
-	16729  007%  Adding the first 10000 citizens to Japan With Collection
-	11084  005%  Adding one more citizen to Japan With Collection
-	00046  000%  Creating Japan Without Collection
-	212534  088%  Adding the first 10000 citizens to Japan Without Collection
-	00026  000%  Adding one more citizen to Japan Without Collection
-	00823  000%  Deleting Japan With Collection
-	00206  000%  Deleting Japan Without Collection
-
-
-Note that the Hibernate session is flushed often, that is the reason why "Adding the first n citizens ..." is skewed in the two cases: 1 flush vs. n flush. The interesting line is the "Adding one more ...".
+The interesting line is the "Adding one more ...".
 

@@ -1,9 +1,11 @@
 import org.springframework.util.StopWatch;
 
 import collection.or.not.*;
+import org.hibernate.*
 
 class BootStrap {
-	def static final int NUM_CITIZENS = 1000
+	def static final int NUM_CITIZENS = 10000
+	def SessionFactory sessionFactory
 	def init = { servletContext ->
 
 		def stopwatch = new StopWatch()
@@ -26,8 +28,9 @@ class BootStrap {
 		stopwatch.stop()
 		stopwatch.start("Adding the first $NUM_CITIZENS citizens to Japan Without Collection")
 		(1..NUM_CITIZENS).each {
-			new Citizen2(name:"Citizen 2 $it", age: (it * 10), country: country2).save(flush:true, failOnError:true)
+			new Citizen2(name:"Citizen 2 $it", age: (it * 10), country: country2).save(flush:false, failOnError:true)
 		}
+		if(sessionFactory !=null) sessionFactory.getCurrentSession().flush()
 		stopwatch.stop()
 		stopwatch.start("Adding one more citizen to Japan Without Collection")
 		new Citizen2(name:"Citizen 2 next", age: 100, country: country2).save(flush:true, failOnError:true)
