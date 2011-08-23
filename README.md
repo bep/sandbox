@@ -1,6 +1,6 @@
 Bep's sand box
 =============
-This is a sandbox. The stuff hidden here should work, should contain some interesting stuff - but it is a sand box, and as so should be considered experimental.
+This is a sand box. The stuff hidden here should work, it should contain some interesting stuff - but it is a sand box, and as so should be considered experimental.
 
 /grails
 -------
@@ -8,6 +8,8 @@ This is a sandbox. The stuff hidden here should work, should contain some intere
 ### /collection-or-not
 
 A small Grails project to test out GORM modelling (Hibernate) 1-many-realationships with and without use of Collection on the 1 side.
+
+Inspired by this blog post: https://mrpaulwoods.wordpress.com/2011/02/07/implementing-burt-beckwiths-gorm-performance-no-collections/
 
 Creation of 1000 then one child gives currently these results with a HSQLDB file-db running on my Dell laptop:
 
