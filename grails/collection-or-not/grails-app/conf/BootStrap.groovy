@@ -3,7 +3,7 @@ import org.springframework.util.StopWatch;
 import collection.or.not.*;
 
 class BootStrap {
-	def static final int NUM_CITIZENS = 10000
+	def static final int NUM_CITIZENS = 1000
 	def init = { servletContext ->
 
 		def stopwatch = new StopWatch()
@@ -31,6 +31,18 @@ class BootStrap {
 		stopwatch.stop()
 		stopwatch.start("Adding one more citizen to Japan Without Collection")
 		new Citizen2(name:"Citizen 2 next", age: 100, country: country2).save(flush:true, failOnError:true)
+		stopwatch.stop()
+		stopwatch.start("Deleting Japan With Collection")
+		Country1.withTransaction() { status ->
+			// ignoring the transaction status here, rollback on exception
+			Country1.findAll().each { country -> country.delete(flush:true, failOnError:true) }
+		}	
+		stopwatch.stop()
+		stopwatch.start("Deleting Japan Without Collection")
+		Country2.withTransaction() { status ->
+			// ignoring the transaction status here, rollback on exception
+			Country2.findAll().each { country -> country.delete(flush:true, failOnError:true) }
+		}
 		stopwatch.stop()
 		println(stopwatch.prettyPrint())
 	}

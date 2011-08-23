@@ -20,14 +20,17 @@ Creation of 1000 then one child gives currently these results with a HSQLDB file
 	10089  050%  Adding the first 1000 citizens to Japan Without Collection
 	00011  000%  Adding one more citizen to Japan Without Collection
 
-On my i7 Ubuntu desktop with 6 gigs of ram and the citizen number set to 10000:
+On my i7 Ubuntu desktop with 6 gigs of ram and the citizen number set to 10000, now with added test case for the cascade-delete:
 
-	00463  000%  Creating Japan With Collection
-	17292  007%  Adding the first 10000 citizens to Japan With Collection
-	11419  005%  Adding one more citizen to Japan With Collection
-	00044  000%  Creating Japan Without Collection
-	209856  088%  Adding the first 10000 citizens to Japan Without Collection
-	00027  000%  Adding one more citizen to Japan Without Collection
+	00451  000%  Creating Japan With Collection
+	16729  007%  Adding the first 10000 citizens to Japan With Collection
+	11084  005%  Adding one more citizen to Japan With Collection
+	00046  000%  Creating Japan Without Collection
+	212534  088%  Adding the first 10000 citizens to Japan Without Collection
+	00026  000%  Adding one more citizen to Japan Without Collection
+	00823  000%  Deleting Japan With Collection
+	00206  000%  Deleting Japan Without Collection
+
 
 Note that the Hibernate session is flushed often, that is the reason why "Adding the first n citizens ..." is skewed in the two cases: 1 flush vs. n flush. The interesting line is the "Adding one more ...".
 
