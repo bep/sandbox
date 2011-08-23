@@ -3,7 +3,7 @@ import org.springframework.util.StopWatch;
 import collection.or.not.*;
 
 class BootStrap {
-	def static final int NUM_CITIZENS = 1000
+	def static final int NUM_CITIZENS = 10000
 	def init = { servletContext ->
 
 		def stopwatch = new StopWatch()
