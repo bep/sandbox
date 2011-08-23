@@ -1,6 +1,6 @@
-Bep's sand box
+Bep's sandbox
 =============
-This is a sand box. The stuff hidden here should work, it should contain some interesting stuff - but it is a sand box, and as so should be considered experimental.
+This is a sandbox. The stuff hidden here should work, it should contain some interesting stuff - but it is a sandbox, and as so should be considered experimental.
 
 /grails
 -------
