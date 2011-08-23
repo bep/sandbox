@@ -29,3 +29,5 @@ On my i7 Ubuntu desktop with 6 gigs of ram and the citizen number set to 10000:
 	209856  088%  Adding the first 10000 citizens to Japan Without Collection
 	00027  000%  Adding one more citizen to Japan Without Collection
 
+Note that the Hibernate session is flushed often, that is the reason why "Adding the first n citizens ..." is skewed in the two cases: 1 flush vs. n flush. The interesting line is the "Adding one more ...".
+
