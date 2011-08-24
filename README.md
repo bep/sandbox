@@ -26,5 +26,7 @@ On my i7 Ubuntu desktop with 6 gigs (heap size set to default, though) of ram an
 
 The interesting line is the "Adding one more ...". I also question the cascade-deletion algorithm used for the hasMany-country. Will look into that one.
 
-The tests are run in the *BootStrap* class. 
+To run the tests:
+
+*grails test-app integration: -echoOut*
 
