@@ -13,7 +13,7 @@ This is a small Grails project to test out GORM modelling (Hibernate) one-to-man
 
 The code is inspired by this blog post: https://mrpaulwoods.wordpress.com/2011/02/07/implementing-burt-beckwiths-gorm-performance-no-collections/
 
-On my i7 Ubuntu desktop with 6 gigs of ram and the citizen number set to 10000:
+On my i7 Ubuntu desktop with 6 gigs (heap size set to default, though) of ram and the citizen number set to 10000:
 
 	00438  001%  Creating Japan With Collection
 	16928  037%  Adding the first 10000 citizens to Japan With Collection
